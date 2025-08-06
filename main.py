@@ -6,14 +6,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # <-- frontend origin
+    allow_origins=["http://localhost:5173", "https://lexisimplify-backend.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 app.include_router(upload.router)
-app.include_router(simplify.router, prefix="/simplify")
+app.include_router(simplify.router)
 app.include_router(ask.router)
 
 @app.get("/")

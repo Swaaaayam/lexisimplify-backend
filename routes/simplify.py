@@ -7,7 +7,7 @@ router = APIRouter()
 class SimplifyRequest(BaseModel):
     clause: str
 
-@router.post("/")
+@router.post("/simplify")
 async def simplify(req: SimplifyRequest):
     simplified = simplify_text(req.clause)
     return {"simplified": simplified}
