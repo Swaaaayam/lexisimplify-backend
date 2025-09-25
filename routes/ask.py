@@ -8,7 +8,7 @@ class AskRequest(BaseModel):
     question: str
     context: str = ""
 
-@router.post("/ask/")
+@router.post("/ask")
 async def ask(request: AskRequest):
     answer = answer_question(request.question, request.context)
     return {"answer": answer}
